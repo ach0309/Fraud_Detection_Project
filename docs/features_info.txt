@@ -1,0 +1,12 @@
+The data contains both continuous and discrete features and has 11 features:
+- step: A unit of time that represents hours in the dataset. (Example: hour 1, hour 2, hour 220, ...)
+- type: The type of transaction 
+- amount: The amount of money transferred 
+- nameOrig: The origin account name
+- oldBalanceOrg: The origin accounts balance before the transaction 
+- newBalanceOrig: The origin accounts balance after the transaction 
+- nameDest: The destination account name 
+- oldbalanceDest: The destination accounts balance before the transaction 
+- newbalanceDest: The destination accounts balance after the transaction 
+- isFlaggedFraud: A “naive” model that simply flags a transaction as fraudulent if it is greater than 200,000 (note that this currency is not USD) 
+- isFraud: Was this simulated transaction actually fraudulent? In this case, we consider “fraud” to be a malicious transaction that aimed to transfer funds out of a victim’s bank account before the account owner could secure their information. 
