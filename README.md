@@ -1,6 +1,6 @@
 # Financial Fraud Detection Project
 
-Fraud happens quietly, often when and where you least expect it -- that subtlety is exactly what makes detection challenging. If we _flag everything_ as fraud, we drown in false alarms but if we _don't flag anything_ as fraud, we’ll miss every real case. The challenge comes from finding the rare suspicious cases hiding in a sea of normal activities.
+Fraud happens quietly, often when and where you least expect it — and that subtlety is exactly what makes detection challenging. If we _flag everything_ as fraud, we drown in false alarms but if we _don't flag anything_ as fraud, we’ll miss every real case. The challenge comes from finding the rare suspicious cases hiding in a sea of normal activities.
 
 In this project, we’re assigned a role as data scientist at Caishen. It’s an international bank in NYC and the cybersecurity team has handed us historical fraud data.
 
