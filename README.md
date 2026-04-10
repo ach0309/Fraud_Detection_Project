@@ -9,3 +9,8 @@ Now it’s our job to turn it into a minimal viable product (MVP), analyzing the
 
 Information on the the data features are in this link: [Features Information](docs/features_info.txt)
 
+
+
+------------ NOTE TO SELF:
+- add photos of normal transfer, of sender balance weird, receiver's balance weird
+- 
