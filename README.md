@@ -8,6 +8,7 @@ Now it’s our job to turn it into a minimal viable product (MVP), analyzing the
 
 
 Information on the the data features are in this link: [Features Information](docs/features_info.txt)
+Since Github blocks file uploads larger than 100 MB, we will not be including the actual dataset within this repository. But you can see the first few rows of the data here: [Caishen Bank Transactions Dataset](data/bank_transactions.png)
 
 
 
