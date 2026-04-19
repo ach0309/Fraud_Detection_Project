@@ -4,7 +4,7 @@ Fraud happens quietly, often when and where you least expect it — and that sub
 In this project, we’re assigned a role as data scientist at Caishen, an international bank in NYC, and the cybersecurity team has handed us historical fraud data. Now it’s our job to turn it into a minimal viable product (MVP), analyzing the dataset of bank transactions then building an ensemble classifier (such as random forest or boosted model) that can decide whether a transaction is likely to be fraudulent.
 
 Information on the the data features are in this link: [Features Information](docs/features_info.txt)
-Since Github blocks file uploads larger than 100 MB, we will not be including the actual dataset within this repository. But you can see the first few rows of the data here: [Caishen Bank Transactions Dataset](data/bank_transactions.png)
+Since Github blocks file uploads larger than 100 MB, we will not be including the actual dataset within this repository. But you can see the first few rows of the data here: ![Caishen Bank Transactions Dataset](data/bank_transactions.png)
 
 Final Report [Q&A](docs/report_qa.txt)
 
@@ -14,13 +14,13 @@ This project is split into three sections:
 During EDA we find that our dataset has 11 columns and 6 million+ bank transactions.
 After doing univariate, bivariate, and multivariate analysis, we find that we have better chance when we combine with other features. 
 
-[Correlation Heatmap](docs/corr_map.png)
+![Correlation Heatmap](docs/corr_map.png)
 
 As the correlation map above shows, we also found that individual correlations with isFraud were all low, combinations of these features showed revealed much stronger fraud signals than any individual feature alone. 
 
 After plotting and exploring the data, we find that not only was our target variable highly skewed but so were the balances before and after a transfer.
 An interesting plot of the balances are shown below:
-[How Account Balances Differ Between Fraudulent and Legitimate Transactions](/data/log_balance.png)
+![How Account Balances Differ Between Fraudulent and Legitimate Transactions](/data/log_balance.png)
 
 Even though our data is really skewed, with the help of log-transform, we were able to pinpoint some suspicious behaviors that presents a stark difference when compared with real transactions:
 - in newBalanceOrig, we find that fraudsters do not keep money in their account after transferring.
@@ -56,13 +56,13 @@ The model's precision is really good, 96% correct when the model says a transact
 | AUC | 0.9972
 
 
-[feature_importance](docs/feature_imp.png)
+![Features Ranked By Importance](docs/feature_imp.png)
 
 The above chart confirms what we found in EDA. The two features we engineered (balance_change_orig and balance_change_dest) turned out to be the most useful for the model, which makes sense since fraudsters consistently drain accounts completely. step, balance_mismatch, and amount contributed moderately, while type_PAYMENT and type_DEBIT scored near zero were expected since those transaction types had no fraud cases at all.
 
 Our model's precision is 96%, meaning that when it flags a transaction as fraud, it is right almost every time, very few false alarms. However, the model misses 423 actual fraud cases, which is 25.75% of all real fraud in our test set, a low recall. 
 
-[roc_auc_curve](docs/roc_auc_curve.png)
+![ROC-AUC Curve](docs/roc_auc_curve.png)
 
 The AUC score of 0.9972 means that the model is actually very good at identifying which transactions look suspicious. The issue is that by default, the model only flags something as fraud if it is at least 50% confident. Some of the 423 missed fraud cases are likely sitting just below that 50% cutoff. By lowering the decision threshold from 0.50 to 0.30, recall improved from 74.25% to 77% while precision only dropped slightly from 96% to 94%. This simple adjustment required no retraining and resulted in a minimally better F1 score of 0.8462.
 In short, the F1 score tells us how the model performs at the 50% cutoff, while the AUC tells us how good the model is at ranking risk overall. The adjustment we made on the threshold also confirms that tuning it is a quick and effective way to optimize the precision-recall tradeoff for imbalanced datasets.
