@@ -1,11 +1,12 @@
 # Financial Fraud Detection Project
-
 Fraud happens quietly, often when and where you least expect it — and that subtlety is exactly what makes detection challenging. If we _flag everything_ as fraud, we drown in false alarms but if we _don't flag anything_ as fraud, we’ll miss every real case. The challenge comes from finding the rare suspicious cases hiding in a sea of normal activities.
 
 In this project, we’re assigned a role as data scientist at Caishen, an international bank in NYC, and the cybersecurity team has handed us historical fraud data. Now it’s our job to turn it into a minimal viable product (MVP), analyzing the dataset of bank transactions then building an ensemble classifier (such as random forest or boosted model) that can decide whether a transaction is likely to be fraudulent.
 
 Information on the the data features are in this link: [Features Information](docs/features_info.txt)
 Since Github blocks file uploads larger than 100 MB, we will not be including the actual dataset within this repository. But you can see the first few rows of the data here: [Caishen Bank Transactions Dataset](data/bank_transactions.png)
+
+Final Report [Q&A](docs/report_qa.txt)
 
 This project is split into three sections:
 
@@ -29,7 +30,6 @@ You can find more details on other feature explorations throughout the project o
 
 
 ### 2. Cleaning, Wrangling, and Preprocessing
-
 During preprocessing, 1,156 duplicate rows were identified after dropping the account ID columns nameOrig and nameDest. However, upon inspection, dropping these duplicates reduced our fraud transactions from 8,213 to 8,124 - a loss of 89 fraudulent transactions. Given the severe class imbalance in this dataset (only 0.13% of transactions are fraudulent), every fraud case is valuable for model training. Therefore, retaining these duplicate rows to preserve as many fraud examples as possible was the idea the project went with.
 
 Dropping these duplicates is an opportunity for future exploration when optimizing the models.
@@ -42,7 +42,6 @@ Applied one-hot encoding to type and retained duplicate rows to preserve all 8,2
 
 
 ### 3. Creating and Hypertuning Model
-
 The hyperparameter tuning did not have a huge impact on the model's performance. Using the best parameters: 
 *n_estimators=200, max_depth=10, min_samples_split=5, min_samples_leaf=1, and class_weight=None*, 
 the baseline model did slightly better than the tuned model by 0.005. This seems backwards but this is explained by the fact that the tuned model is more honest than a single train/test split. Cross Validation split the data into 5 different ways and averages the score, which makes the tuned model's F1 Score more reliable.
