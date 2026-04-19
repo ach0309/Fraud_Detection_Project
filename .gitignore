@@ -1,2 +1,3 @@
 data/caishen_bank_transactions.csv
 data/clean_bank_transactions.csv
+*.csv
