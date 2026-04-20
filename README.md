@@ -5,7 +5,7 @@ In this project, I've been assigned a role as data scientist at Caishen, an inte
 Now it’s our job to turn it into a minimal viable product (MVP), analyzing the dataset of bank transactions then building an ensemble classifier (such as random forest or boosted model) that can decide whether a transaction is likely to be fraudulent.
 
 Information on the the data features are in this link: [Features Information](docs/features_info.txt)\
-Since Github blocks file uploads larger than 100 MB, we will not be including the actual dataset within this repository. But you can see the first few rows of the data here: ![Caishen Bank Transactions Dataset](data/bank_transactions.png)
+Since Github blocks file uploads larger than 100 MB, we will not be including the actual dataset within this repository. But you can see the first few rows of the data here: ![Caishen Bank Transactions Dataset](docs/bank_transactions.png)
 
 Final Report [Q&A](docs/report_qa.txt)
 
